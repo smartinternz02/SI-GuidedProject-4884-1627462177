@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Natural Gas Price Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*overflow: hidden;*/
+  /*background-color: #000000;*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: cover;*/
+  background-position: center;
+  background-size: cover;
+  background:url('../static/css/space.gif');
+
+  /*background:url('../static/css/space.gif') no-repeat 100% 100% fixed;*/
+  /*height:100%;*/
+  /*width:100%;*/
+  /*background: url(../static/css/space.gif)no-repeat center fixed;*/
+}
+
+.signupSection {
+color: #fff;
+  
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 450px;
+  border-radius: 15px;
+  text-align: center;
+  display: flex;
+  color: white;
+  box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, .5);
+  backdrop-filter: blur(6px);
+}
+
+.info {
+  width: 45%;
+  background: rgba(20, 20, 20, .8);
+  border-radius: 15px;
+  padding: 30px 0;
+  border-right: 5px solid rgba(30, 30, 30, .8);
+  h2 {
+    padding-top: 30px;
+    font-weight: 300;
+  }
+  p {
+    font-size: 18px;
+  }
+  .icon {
+    font-size: 8em;
+    padding: 20px 0;
+    color: rgba(10, 180, 180, 1);
+  }
+}
+
+.signupForm {
+  width: 70%;
+  padding: 30px 0;
+  
+  transition: .2s;
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.inputFields {
+  margin: 15px 0;
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  border: 1px solid rgba(10, 180, 180, 1);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: rgba(20, 20, 20, .2);
+  color: white;
+  outline: none;
+}
+
+.noBullet {
+  list-style-type: none;
+  padding: 0;
+}
+
+#pred-btn {
+  border: 1px solid rgba(10, 180, 180, 1);
+  background: rgba(20, 20, 20, .6);
+  font-size: 18px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 50px;
+  cursor: pointer;
+  transition: .4s;
+  &:hover {
+    background: rgba(20, 20, 20, .8);
+    padding: 10px 80px;
+  }
+}
+
+
+</style>
+<body>
+<div class="signupSection">
+  <div class="info">
+    <h2>Natural Gas <br> Price Prediction</h2>
+    <i class="icon ion-ios-ionic-outline" aria-hidden="true"></i>
+    <p><br><br><br>Team 2 <br>Suriya<br>Namitha<br>Joel<br>Fasil </p>
+  </div>
+  <form action="{{ url_for('prediction')}}" method="post" class="signupForm" name="signupform">
+    <h2>Enter Date to Predict</h2>
+    <ul class="noBullet">
+      <li>
+          <label for="method">Choose a Method:</label>
+          <select name="method" id="method">
+            <option value="1">Random Forest Method</option>
+            <option value="2">Decision Tree Method</option>
+          </select>
+      </li>
+      <li>
+        <input type="text"  class="inputFields" name="year" placeholder="year" required="required" />
+      </li>
+      <li>
+        <input type="text"  class="inputFields" name="month" placeholder="month" required="required" />
+      </li>
+      <li>
+      <input type="text"  class="inputFields" name="day" placeholder="day" required="required" />
+      </li>
+      <li id="center-btn">
+        <button type="submit" id="pred-btn" class="btn btn-primary btn-block btn-large">Predict</button>
+      </li>
+    </ul>
+  </form> 
+   <br>
+   <br>
+   {{ predic_text }}
+ </div>
+</body>
+</html>
+
