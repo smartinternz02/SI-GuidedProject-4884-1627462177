@@ -72,7 +72,7 @@ The project has been built using 2 models of prediction namely the Decision Tree
 ![Image](https://github.com/smartinternz02/SI-GuidedProject-4884-1627462177/blob/main/Images/UI%20Image.png)
 
 ## Demonstration Video
-[Youtube](https://youtu.be/BYdsDyq_tVA)
+[Youtube](https://youtu.be/_51qygjXQ2E)
 
 ### Contributors
 - [Suriyakrishnan Sathish](https://github.com/suriya-1403)
